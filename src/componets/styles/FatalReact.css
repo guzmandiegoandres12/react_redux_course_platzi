@@ -1,0 +1,15 @@
+.FatalErrorContainer{
+  width: 100%;
+  height: 100%;
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.FatalErrorContainer img{
+  width: 35vw;
+}
+.FatalErrorContainer h1{
+  text-transform: uppercase;
+}

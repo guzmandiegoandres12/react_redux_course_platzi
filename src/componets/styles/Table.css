@@ -1,0 +1,24 @@
+.tabla{
+  width: 100%;
+  text-align: left;
+  border-collapse:collapse;
+}
+.tabla thead th{
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.7rem .5rem;
+  margin: .5rem 0;
+  border-bottom:1px solid rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.6);
+}
+.tabla tbody td{
+  padding: 1rem .5rem;
+  font-size: 1.2rem;
+}
+.tabla tbody tr:nth-child(2n){
+  background-color: rgba(242, 242, 242, 0.602)
+}
+.tabla tbody tr:hover{
+  background-color: rgba(200, 200, 200, 0.808) ;
+  cursor: pointer;
+}
