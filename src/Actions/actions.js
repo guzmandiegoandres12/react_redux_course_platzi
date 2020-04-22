@@ -1,13 +1,13 @@
 import axios from 'axios';
 import { 
   TRAER_USUARIOS,
-  CARGANDO,
-  ERROR
+  CARGANDO_USUARIOS,
+  ERROR_USUARIOS
  } from '../ActionsTypes/Types';
 
 export const getUsers = () => async(dispache)=>{
   dispache({
-    type:CARGANDO,
+    type:CARGANDO_USUARIOS,
   })
   try {
     const getUserApi= await axios.get('https://jsonplaceholder.typicode.com/users')
@@ -17,7 +17,7 @@ export const getUsers = () => async(dispache)=>{
     })
   } catch (error) {
     dispache({
-      type:ERROR,
+      type:ERROR_USUARIOS,
       payload:error.message
     })
   }

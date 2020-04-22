@@ -1,27 +1,26 @@
 import { 
-  TRAER_USUARIOS,
-  CARGANDO_USUARIOS,
-  ERROR_USUARIOS
+  TRAER_PUBLICACIONES, CARGANDO_PUBLICACIONES, ERROR_PUBLICACIONES
 } from '../ActionsTypes/Types';
 
 const INITIAL_STATE = {
-  usuarios:[],
+  publicaciones:[],
   cargando:false,
   error:''
 }
 
 export default (state = INITIAL_STATE , action) => {
+  
   switch (action.type) {
-    case TRAER_USUARIOS:
+    case TRAER_PUBLICACIONES:
       return {
         ...state,
-        usuarios:action.payload,
+        publicaciones:action.payload,
         cargando:false,
-        error:action.payload,
-      };
-    case CARGANDO_USUARIOS:
+        error:"",
+      }
+    case CARGANDO_PUBLICACIONES:
       return {...state, cargando:true};
-    case ERROR_USUARIOS:
+    case ERROR_PUBLICACIONES:
       return {
         ...state,
         error:action.payload,
