@@ -1,34 +1,28 @@
 import { useEffect } from 'react';
-import { useSelector, useDispatch} from 'react-redux';
-import { getUsers } from '../Actions/actions';
-import { getPublicaciones , getPostForuser } from '../Actions/PublicacionesActions';
+import { useDispatch } from 'react-redux';
 /**
  * Hook para carga  de  usuarios
  */
-
-export const useGetUser = ()=>{
-  const {UsuariosReducers}=useSelector(store=>store)
-  const storeDispach=useDispatch()
-  useEffect(()=>{
-    if(UsuariosReducers.usuarios.length===0){
-      storeDispach(getUsers())
+export const useGetUser = (getUsers,lengtUser) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if(lengtUser===0){
+      dispatch(getUsers());
     }
-  },[UsuariosReducers.usuarios.length,storeDispach])
-  return UsuariosReducers
-}
-export const useGetpublicaciones = ()=>{
-  const storeDispach=useDispatch()
-  useEffect(()=>{
-    storeDispach(getPublicaciones())
-  },[storeDispach])
-   console.log();
+  }, [dispatch,getUsers,lengtUser])
 }
 
-export const useGetpublicacionesUsuario = (usuario)=>{  
-  const storeDispach=useDispatch()
-  const {PublicacionesReducers}=useSelector(store=>store)
+export const useGetpublicaciones = ()=>{
   useEffect(()=>{
-    storeDispach(getPostForuser(usuario))
-  },[storeDispach,usuario])
-  return PublicacionesReducers
+   
+  },[])
+ 
+}
+
+export const useGetpublicacionesUsuario = (GetpublicacionPorUsuario,data)=>{  
+  const dispatch = useDispatch()
+  useEffect(()=>{
+    if(data) dispatch(GetpublicacionPorUsuario(data));
+  },[data,GetpublicacionPorUsuario,dispatch])
+ 
 }

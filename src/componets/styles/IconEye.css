@@ -1,6 +1,6 @@
 
 .eye.icon {
-  color: #000;
+  color: #263f4d;
   margin-left: 3px;
   margin-top: 3px;
   width: 18px;
@@ -19,5 +19,5 @@
   height: 9px;
   border-radius: 50%;
   border: solid 1px currentColor;
-  background-color: #000;
+  background-color: #263f4d;
 }

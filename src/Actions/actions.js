@@ -5,7 +5,7 @@ import {
   ERROR_USUARIOS
  } from '../ActionsTypes/Types';
 
-export const getUsers = () => async(dispache)=>{
+export const getUsers = () => async(dispache,s)=>{
   dispache({
     type:CARGANDO_USUARIOS,
   })
