@@ -3,6 +3,7 @@ import {
   TRAER_PUBLICACIONES,
   CARGANDO_PUBLICACIONES,
   ERROR_PUBLICACIONES,
+  TRAER_PUBLICACIONES_POR_USUARIO,
  } from '../ActionsTypes/Types';
 
 export const getPublicaciones = () => async(dispache)=>{
@@ -22,4 +23,17 @@ export const getPublicaciones = () => async(dispache)=>{
     })
   }
   
+}
+export const getPostForuser = (id) =>  async (dispache) => {
+  console.log(id);
+  
+  try {
+    const getUserApi= await axios.get(`https://jsonplaceholder.typicode.com/posts?userId=${id}`)
+    dispache({
+      type:TRAER_PUBLICACIONES_POR_USUARIO,
+      payload:getUserApi.data
+    })
+  } catch (error) {
+    
+  }
 }

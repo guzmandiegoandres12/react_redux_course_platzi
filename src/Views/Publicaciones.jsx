@@ -1,25 +1,22 @@
 import React from 'react';
-import { useSelector } from 'react-redux'
-import { useGetUser , useGetpublicaciones} from '../hooks/Hooks'
+import { useGetUser , useGetpublicacionesUsuario } from '../hooks/Hooks'
 import Spinner from '../componets/Spinner';
 import FatalError from '../componets/FatalError';
 import './syles/Publicaciones.css'
 
 const Publicaciones = (props) => {
-  useGetUser();
-  useGetpublicaciones()
-  const {UsuariosReducers,PublicacionesReducers}=useSelector(store=>store)
+  const iduser=props.match.params.id 
+  const publicaciones=useGetpublicacionesUsuario(iduser)
+  const users = useGetUser();
+
   ;
-  console.log(PublicacionesReducers);
-  console.log(UsuariosReducers);
-  
   return(
     <div className="publicacionescontainer">
       {
-          PublicacionesReducers.cargando === true &&(<Spinner />)
+        publicaciones.cargando === true &&(<Spinner />)
       }
       {
-        PublicacionesReducers.error!=='' && (<FatalError menssage={PublicacionesReducers.error} />)
+        publicaciones.error!=='' && (<FatalError menssage={publicaciones.error} />)
       }
     </div>
   )

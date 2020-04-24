@@ -11,15 +11,16 @@ export const getUsers = () => async(dispache)=>{
   })
   try {
     const getUserApi= await axios.get('https://jsonplaceholder.typicode.com/users')
-    dispache({
-      type:TRAER_USUARIOS,
-      payload:getUserApi.data
-    })
+     dispache({
+       type:TRAER_USUARIOS,
+       payload:getUserApi.data
+     })
   } catch (error) {
+    console.log(error);
+    
     dispache({
       type:ERROR_USUARIOS,
       payload:error.message
     })
   }
-  
 }

@@ -18,7 +18,7 @@ const Table = (props) => (
         <td>{usuario.name}</td>
         <td>{usuario.email}</td>
         <td>{usuario.website}</td>
-        <td><Link to={`/publicaciones/${index}`}><IconEye /></Link></td>
+        <td><Link to={`/publicaciones/${usuario.id}`}><IconEye /></Link></td>
       </tr>
     ))}
   </tbody>
