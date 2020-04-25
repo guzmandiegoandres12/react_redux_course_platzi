@@ -20,7 +20,7 @@ const Publicaciones = (props) => {
     if(cargando === true || publicaciones.length === 0) return <Spinner />
     if(error !== '') return <FatalError menssage={error} />
     const {post} = publicaciones
-    return (post.map( element => <Post key={element.id} data={element}/>))
+    return (post.map( ( element , index) => <Post key={element.id} data={element} positionArray={index}/>))
   }
   
   return(

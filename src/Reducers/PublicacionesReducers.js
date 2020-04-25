@@ -2,7 +2,8 @@ import {
   TRAER_PUBLICACIONES,
   CARGANDO_PUBLICACIONES,
   ERROR_PUBLICACIONES,
-  TRAER_PUBLICACIONES_POR_USUARIO
+  TRAER_PUBLICACIONES_POR_USUARIO,
+  ABRIR_COMENTARIOS_PUBLICACION
 } from '../ActionsTypes/Types';
 
 const INITIAL_STATE = {
@@ -34,6 +35,14 @@ export default (state = INITIAL_STATE , action) => {
         ...state,
         error:action.payload,
         cargando:false
+      }
+    case ABRIR_COMENTARIOS_PUBLICACION:
+      return{
+        ...state,
+        publicaciones:{
+          usuario: state.publicaciones.usuario,
+          post:action.payload
+        }
       }
     default: return state
   }
